@@ -9,14 +9,8 @@ async function encryptPassword(user) {
     user.password = await bcrypt.hash(user.password, SALT_FACTOR);
 }
 
-function comparePasswords(inputedPassword, hashedPassword) {
-    bcrypt.compare(inputedPassword, hashedPassword, function(error, result) {
-        if (error) {
-            console.log(error);
-        } else {
-            return result;
-        }
-    });
+async function comparePasswords(inputedPassword, hashedPassword) {
+    return await bcrypt.compare(inputedPassword, hashedPassword);
 }
 
 module.exports = { encryptPassword, comparePasswords };

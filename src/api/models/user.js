@@ -2,10 +2,11 @@ const { Sequelize, DataTypes } = require('sequelize');
 const bcryptSevice = require('../services/encryption.service');
 const { sequelize } = require('../../db/connection');
 
+
 const User = sequelize.define('User', {
     // Model attributes are defined here
     id: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true
     },
@@ -25,6 +26,10 @@ const User = sequelize.define('User', {
     password: {
         type: DataTypes.STRING,
         allowNull: false
+    },
+    pictureURL: {
+        type: DataTypes.STRING,
+        allowNull: true
     }
 }, {
     timestamps: false
