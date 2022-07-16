@@ -1,4 +1,3 @@
-const { initializeApp } = require('firebase-admin/app');
 const { getStorage } = require('firebase-admin/storage');
 const admin = require("firebase-admin");
 

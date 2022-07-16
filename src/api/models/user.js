@@ -35,7 +35,7 @@ const User = sequelize.define('User', {
     timestamps: false
 });
 
-User.beforeCreate(async(user, options) => {
+User.beforeCreate(async(user) => {
     await bcryptSevice.encryptPassword(user);
 });
 

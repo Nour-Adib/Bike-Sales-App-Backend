@@ -1,5 +1,4 @@
 const bcrypt = require('bcryptjs');
-const saltRounds = 10;
 
 async function encryptPassword(user) {
     if (!user.changed('password')) {

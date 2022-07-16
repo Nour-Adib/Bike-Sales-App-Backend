@@ -1,5 +1,4 @@
 const express = require("express");
-const User = require("../models/user");
 const multer = require("multer");
 const sharp = require("sharp");
 const { getAll, create, addAvatar, getWithCredentials } = require('../controllers/UserController');
@@ -105,7 +104,7 @@ router.post("/users/me/avatar", auth, upload.single("avatar"), async function(re
     await addAvatar(userID.id, buffer);
 
     res.status(200).send();
-}, function(error, req, res, next) {
+}, function(error, req, res) {
     res.status(400).send({ error: error.message });
 });
 
